@@ -1,0 +1,23 @@
+.sidebar {
+  z-index: 99999;
+  width: 450px;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  background-color: white;
+  box-shadow: 0px 0px 2px 0px grey;
+}
+#close {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 28px;
+  color: orange;
+  cursor: pointer;
+}
+@media screen and (max-width: 455px) {
+  .sidebar {
+    width: 100%;
+  }
+}

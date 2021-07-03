@@ -1,0 +1,45 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.slider_cardList {
+}
+
+#slider::-webkit-scrollbar {
+  height: 0px;
+}
+body {
+  /* overflow-x: hidden; */
+}
+#root {
+  height: 100vh;
+  width: 100%;
+}
+.MuiSelect-select:focus {
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+.dropdown .btn {
+  background-color: white !important;
+  color: black;
+  border: 1px solid lightgray;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 5px 10px 5px 10px;
+  margin-right: 20px;
+}
+.dropdown .btn:focus {
+  color: black !important;
+}
+.main_2 {
+  height: 100%;
+  overflow: auto;
+}
+
+.border_bottom {
+  border-bottom:2px solid gray
+}

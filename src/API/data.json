@@ -1,0 +1,49 @@
+{
+    "info_":"this is data contain slider card information",
+    "data":[{
+        "id":0,
+         "imgSrc":"",
+         "title":"300% off on Pizza hut"
+    },
+    {
+        "id":1,
+         "imgSrc":"",
+         "title":"NON-VEG BRING NEW TASTE "
+    },{
+        "id":2,
+         "imgSrc":"",
+         "title":"VEG SALAD ON FIRE"
+    },{
+        "id":3,
+         "imgSrc":"",
+         "title":"NEW BIG TRIPLE PANEER CHEESE BURGUR"
+    },{
+        "id":4,
+         "imgSrc":"",
+         "title":" on Pizza hut , Fire"
+    },{
+        "id":5,
+         "imgSrc":"",
+         "title":"300% off on Pizza hut"
+    },{
+        "id":6,
+         "imgSrc":"",
+         "title":"300% off on Pizza hut"
+    },{
+        "id":7,
+         "imgSrc":"",
+         "title":"300% off on Pizza hut"
+    },{
+        "id":8,
+         "imgSrc":"",
+         "title":"300% off on Pizza hut"
+    },{
+        "id":9,
+         "imgSrc":"",
+         "title":"300% off on Pizza hut"
+    },{
+        "id":10,
+         "imgSrc":"",
+         "title":"300% off on Pizza hut"
+    }]
+}

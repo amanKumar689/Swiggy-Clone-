@@ -1,0 +1,299 @@
+{
+ 
+  "info":"this is just a fake restaurants list with their menues",
+  "data":[
+  {
+      "restaurant_name":"Sinchan House Pooding" ,
+      "restaurant_id":1101,
+	  "imgSrc": "https://source.unsplash.com/250x150/?food",
+	  "rating":5,
+	    "cat":[
+		 {      "category":"Relevance Popularity",
+		      "menu":[
+	     {
+         	  "food_id":1,
+			   "food_name":"pooding with extra vanilla",
+			   "food_price":"126"			   
+		 }  ,
+		  {
+         	  "food_id":2,
+			   "food_name":"4 size burger ",
+			   "food_price":"126"			   
+		 } 
+		 
+			  ]
+            } 
+			, 
+			 { 
+
+  			 "category":"Non-Veg",
+		      "menu":[
+	     {
+         	  "food_id":3,
+			   "food_name":" gravy Chicken ",
+			   "food_price":"1126"			   
+		 }  ,
+		  {
+         	  "food_id":4,
+			   "food_name":"non-veg momos",
+			   "food_price":"99"			   
+		 } 
+		 
+			  ]
+            } 
+			]
+			} ,
+			{
+    "restaurant_name":"Legends Food" ,
+      "restaurant_id":1999,
+	  "rating":5,
+	   "imgSrc": "https://source.unsplash.com/250x150/?food" ,
+	    "cat":[
+		 {      "category":"Veg",
+		      "menu":[
+	     {
+         	  "food_id":5,
+			   "food_name":"Potato tikka ",
+			   "food_price":"264"			   
+		 }  ,
+		  {
+         	  "food_id":6,
+			   "food_name":"carrot fries",
+			   "food_price":"126"			   
+		 } 
+		 
+			  ]
+            } 
+			, 
+			 
+			 {
+			 "category":"Veg",
+		      "menu":[
+	     {
+         	  "food_id":7,
+			   "food_name":"momos",
+			   "food_price":"126"			   
+		 }  ,
+		  {
+         	  "food_id":8,
+			   "food_name":"momos",
+			   "food_price":"126"			   
+		 } 
+		 
+			  ]
+            } 
+			]
+			}
+,
+
+   {
+    "restaurant_name":"Hot sweet cafe"  ,
+      "restaurant_id":8998,
+	  "rating":4.5,
+	   "imgSrc": "https://source.unsplash.com/250x150/?food" ,
+	    "cat":[
+		 {      "category":"sweet",
+		      "menu":[
+	     {
+         	  "food_id":1,
+			   "food_name":"Rasogulla",
+			   "food_price":"77"			   
+		 }  ,
+		  {
+         	  "food_id":2,
+			   "food_name":" cake",
+			   "food_price":"326"			   
+		 } 
+		 
+			  ]
+            } 
+			, 
+			 
+			 {
+			 "category":"hot",
+		      "menu":[
+	     {
+         	  "food_id":3,
+			   "food_name":"Hot chill fried momos",
+			   "food_price":"70"			   
+		 }  ,
+		  {
+         	  "food_id":4,
+			   "food_name":"Noodle ",
+			   "food_price":"201"			   
+		 } 
+		 
+			  ]
+            } 
+			]
+			}
+			,
+			
+			{
+    "restaurant_name":"Hot sweet cafe"  ,
+      "restaurant_id":8998,
+	  "rating":4.5,
+	   "imgSrc": "https://source.unsplash.com/250x150/?food" ,
+	    "cat":[
+		 {      "category":"sweet",
+		      "menu":[
+	     {
+         	  "food_id":1,
+			   "food_name":"Rasogulla",
+			   "food_price":"77"			   
+		 }  ,
+		  {
+         	  "food_id":2,
+			   "food_name":" cake",
+			   "food_price":"326"			   
+		 } 
+		 
+			  ]
+            } 
+			, 
+			 
+			 {
+			 "category":"hot",
+		      "menu":[
+	     {
+         	  "food_id":3,
+			   "food_name":"Hot chill fried momos",
+			   "food_price":"70"			   
+		 }  ,
+		  {
+         	  "food_id":4,
+			   "food_name":"Noodle ",
+			   "food_price":"201"			   
+		 } 
+		 
+			  ]
+            } 
+			]
+			} ,
+			{
+    "restaurant_name":"Hot sweet cafe"  ,
+      "restaurant_id":8998,
+	  "rating":4.5,
+	   "imgSrc": "https://source.unsplash.com/250x150/?food" ,
+	    "cat":[
+		 {      "category":"sweet",
+		      "menu":[
+	     {
+         	  "food_id":1,
+			   "food_name":"Rasogulla",
+			   "food_price":"77"			   
+		 }  ,
+		  {
+         	  "food_id":2,
+			   "food_name":" cake",
+			   "food_price":"326"			   
+		 } 
+		 
+			  ]
+            } 
+			, 
+			 
+			 {
+			 "category":"hot",
+		      "menu":[
+	     {
+         	  "food_id":3,
+			   "food_name":"Hot chill fried momos",
+			   "food_price":"70"			   
+		 }  ,
+		  {
+         	  "food_id":4,
+			   "food_name":"Noodle ",
+			   "food_price":"201"			   
+		 } 
+		 
+			  ]
+            } 
+			]
+			} ,
+			{
+    "restaurant_name":"Hot sweet cafe"  ,
+      "restaurant_id":8998,
+	  "rating":4.5,
+	   "imgSrc": "https://source.unsplash.com/250x150/?food" ,
+	    "cat":[
+		 {      "category":"sweet",
+		      "menu":[
+	     {
+         	  "food_id":1,
+			   "food_name":"Rasogulla",
+			   "food_price":"77"			   
+		 }  ,
+		  {
+         	  "food_id":2,
+			   "food_name":" cake",
+			   "food_price":"326"			   
+		 } 
+		 
+			  ]
+            } 
+			, 
+			 
+			 {
+			 "category":"hot",
+		      "menu":[
+	     {
+         	  "food_id":3,
+			   "food_name":"Hot chill fried momos",
+			   "food_price":"70"			   
+		 }  ,
+		  {
+         	  "food_id":4,
+			   "food_name":"Noodle ",
+			   "food_price":"201"			   
+		 } 
+		 
+			  ]
+            } 
+			]
+			} ,
+			{
+    "restaurant_name":"Hot sweet cafe"  ,
+      "restaurant_id":8998,
+	  "rating":4.5,
+	   "imgSrc": "https://source.unsplash.com/250x150/?food" ,
+	    "cat":[
+		 {      "category":"sweet",
+		      "menu":[
+	     {
+         	  "food_id":1,
+			   "food_name":"Rasogulla",
+			   "food_price":"77"			   
+		 }  ,
+		  {
+         	  "food_id":2,
+			   "food_name":" cake",
+			   "food_price":"326"			   
+		 } 
+		 
+			  ]
+            } 
+			, 
+			 
+			 {
+			 "category":"hot",
+		      "menu":[
+	     {
+         	  "food_id":3,
+			   "food_name":"Hot chill fried momos",
+			   "food_price":"70"			   
+		 }  ,
+		  {
+         	  "food_id":4,
+			   "food_name":"Noodle ",
+			   "food_price":"201"			   
+		 } 
+		 
+			  ]
+            } 
+			]
+			}
+     
+  ]
+  
+}

@@ -1,0 +1,5 @@
+export const SIDEBAR ='sidebar open or close'
+export const ADD_TO_CART ='add item to cart of a specific restaurant'
+export const SET_RESTAURANT_ID = 'set restaurant id for verification in cart'
+export const REMOVE_FROM_CART = 'remove from the cart '
+export const  AUTH_TOGGLE = ' auth status trigger'

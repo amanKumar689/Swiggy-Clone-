@@ -1,0 +1,86 @@
+.landing {
+  /* border:2px solid red; */
+  display: flex;
+  height: 100vh;
+}
+.landing section:nth-of-type(1) {
+  /* border: 1px solid blue; */
+  /* width:60%; */
+  height: 100vh;
+  flex: 0.60;
+}
+.landing section:nth-of-type(2) {
+  /* border: 1px solid blue;
+  /* width:60%; */
+  /* height: 100vh;  */
+background-image:url('../images/landing_food2.jpg');
+background-repeat:no-repeat;
+background-size:cover;
+  flex: 0.40;
+}
+
+.landing section:nth-of-type(1) header {
+  /* height: 100px; */
+  width: 100%;
+  margin-bottom: 50px;
+  /* border: 3px solid black; */
+  padding:50px
+}
+.landing section:nth-of-type(1) header {
+display:flex;
+justify-content:space-between;
+}
+
+.landing section:nth-of-type(1) header .logo{
+font-size:20px;
+letter-spacing:2px;
+color:orange;
+font-weight:bold;
+}
+.landing section:nth-of-type(1) header .logo img{
+width:35px;
+margin-right:10px;
+}
+
+.landing section:nth-of-type(1) header .auth button{
+    margin-right:10px;
+    margin-top:10px;
+    padding:5px 15px 5px 15px ;
+    background-color:white;
+    border:1px solid gray
+ }
+
+.landing section:nth-of-type(1) .landing_body {
+  /* border: 5px solid orange; */
+  width: 100%;
+  padding: 10px 40px 0px 40px;
+}
+.landing section:nth-of-type(1) .landing_body h1 {
+  
+}
+
+.landing section:nth-of-type(1) .landing_body .input {
+  /* border: 2px solid gray; */
+  height: 94px;
+  padding: 20px 0px 20px 20px;
+  /* width: 100%; */
+  margin-top: 30px;
+  display: flex;
+}
+.landing section:nth-of-type(1) .landing_body .input input {
+  flex: 0.85;
+  padding:20px;
+  bordeR:1px solid gray;
+  border-right:none;
+  outline:none;
+  font-size:16px;
+}
+.landing section:nth-of-type(1) .landing_body .input  button{ 
+    padding:5px 20px 5px 20px ;
+    color:white;
+background-color:orange;
+    border:none;
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:1.5px
+}

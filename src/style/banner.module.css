@@ -1,0 +1,219 @@
+
+.offer_bar {
+	min-height:200px;
+	padding:10px 10px 10px 10px ;
+  display:flex;
+  margin-top:20px;
+	}
+	.left {
+		flex:0.45;
+		min-width:510px;
+		background-color:black;
+		color:white;
+		font-weight:bold;
+		letter-spacing:2px;
+		padding:15px;
+	}
+	.right {
+     		flex:0.55;
+	background-color:black;
+	padding:10px 20px 20px 10px;
+	}
+	
+	.left ul{
+		list-style:none;
+		display:flex;
+		flex-wrap:wrap;
+		justify-content:space-around;		
+		border-right:2px solid white;
+		position:relative;
+	   overflow:hidden;
+	   height:100%;
+		padding:10px 10px 0px 10px;
+	}
+	.left ul li {
+		padding:15px;
+		border:1px solid white;
+		min-width:170px;
+		margin:20px 20px 40px 0px;
+		max-height:50px;
+	 cursor:pointer;
+	 word-break:break-all
+} 
+.left ul li:hover {
+	background-color:white;
+	color:black;
+}
+
+	.left ul li img {
+		width:20px;
+		background-color:white;
+	}
+	
+	
+	
+	
+	
+	
+@media only screen  and (max-width:975px)
+{
+	
+	.left { 
+	  min-width:450px
+	}
+	.left ul li {
+		margin-bottom:0.5rem;
+		min-width:80%;
+		padding:12px;
+	}
+	
+}	
+
+@media only screen  and (max-width:908px)
+{
+	
+	.left { 
+	  min-width:300px
+	}
+	.left ul li {
+		margin-bottom:0.5rem;
+		min-width:70%;
+		padding:12px;
+	}
+	
+}	
+
+
+@media only screen  and (max-width:615px)
+{
+	
+	
+	.left { 
+	  flex:0.6;
+	  min-width:0px;
+	}
+	.left ul {
+		justify-content:flex-start
+	}
+	.right{
+		flex:0.4;
+	}
+	.left ul li {
+		margin-bottom:0.5rem;
+		min-width:80%;
+		padding:12px;
+	}
+	
+}	
+
+
+
+
+                                /*    TESTING   MODE     */
+			
+			.right{
+				color:white;
+				display:flex;
+				flex-wrap:wrap;
+				justify-content:space-evenly;
+				flex-direction:column
+			}
+			.right nav {
+	border:1px solid white;
+	padding:10px;
+	width:40%;
+				align-self:center;
+				text-align:center;
+				letter-spacing:1px;
+				cursor:pointer;
+				min-width:100px;
+			}
+.exposer {
+	display:flex;
+	justify-content:space-evenly;
+	margin-bottom:15px;
+}			
+.right .image
+{
+}			
+.right .data {
+  flex:1;
+ word-break:break-all
+ }
+.right .data p {
+	font-size:13px;
+	color:white;
+	margin-top:50px;
+	margin-left:15px;
+	letter-spacing:2px;
+	line-height:1.5;
+ 
+ }
+ 
+	.right .data p span {
+		display:inline-block;
+	font-size:24px;
+margin-bottom:17px	}
+.image img {
+	margin-top:30px;
+	margin-left:20px;
+	width:170px;
+}								
+
+
+
+
+						@media only screen and (max-width:1088px)
+						{
+							.right .image img {
+								width:150px;
+							}
+							.right .data p {
+							}
+						}						
+								
+								@media only screen and (max-width:1019px)
+						{
+							.right .image img {
+								width:140px;
+							}
+							.right .data p {
+								font-size:11px;
+							}
+						}						
+						
+		
+								@media only screen and (max-width:875px)
+						{
+							.right .image img {
+                          display:none;
+							}
+							.right {
+								display:flex;
+								padding-top:40px;
+								padding-left:20px;
+							}
+							
+							.right .data p span {
+								font-size:27px
+							}
+							.right .data p {
+								font-size:14px
+							}
+						}	
+						
+						
+						
+								@media only screen and (max-width:415px)
+						{
+							
+							.right {
+								display:none;
+							}
+							.left {
+								flex:1;
+								}
+                                 .left ul {
+							   border:none;								 
+								 }											
+					}
