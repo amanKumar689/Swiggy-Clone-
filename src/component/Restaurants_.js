@@ -15,7 +15,6 @@ loadScriptForSortBy()
   }
 
   render() {
-	  console.log("data --> ",Restaurants_data )
     return (
       <div className={style.restaurants_}>
         <header>

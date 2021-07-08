@@ -34,5 +34,6 @@
 .nav ul li {
   font-family: ProximaNova,Arial,Helvetica Neue,sans-serif;
   font-weight:500;
-  cursor:pointer
+  cursor:pointer;
+  position:relative
 }

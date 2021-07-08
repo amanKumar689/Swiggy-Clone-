@@ -4,9 +4,11 @@ import effect from '../style/effect.module.css'
 import * as actions from '../redux/actions'
  import { connect } from "react-redux";   
 import swiggyLogo from "../images/swiggy.svg";
+import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 import {loadScriptFor_black_background} from '../function/useScript'
 const Home = (props) => {
+	
   const history = useHistory()
   useEffect(()=>{
     loadScriptFor_black_background()
@@ -21,8 +23,8 @@ const Home = (props) => {
        SWIGGY
        </div>  
       <div className={style.auth}> 
-      <button className={effect.Hover_black_background} onClick={()=>{props.sidebarToggle(true,"L")}}>Login</button>
-      <button className={effect.Hover_black_background} onClick={()=>{props.sidebarToggle(true,"S")}}>Sign up</button>
+		  {  !props.authState.status ? ( <> <button className={effect.Hover_black_background} onClick={()=>{props.sidebarToggle(true,"L")}}>Login</button>
+		  <button className={effect.Hover_black_background} onClick={()=>{props.sidebarToggle(true,"S")}}>Sign up</button> </> ) : props.authState.user_name}
       </div>  
     </header>
     <div className={style.landing_body}>
@@ -45,4 +47,11 @@ const Home = (props) => {
   </div>;
 };
 
-export default connect(null,actions)(Home);
+function mapStateToProps (state) {
+  return {
+    authState:state.authReducer,
+  }
+} 
+
+
+export default connect(mapStateToProps,actions)(Home);

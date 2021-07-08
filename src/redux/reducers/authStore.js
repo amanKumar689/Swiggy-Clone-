@@ -2,20 +2,19 @@ import {AUTH_TOGGLE} from '../actionsType'
 
 const  initialState = {
 	
-	status:null ,
-	user: null
+	status:false ,
+	user_name: null
 }
 
 export default  function  authReducer(state = initialState,action) {
-	
+
 
 	 switch(action.type) {
 		 
 		 case AUTH_TOGGLE :
 		 
 		  return {
-			  status:action.status ,
-			  user:action.user
+			  status:action.status 
 		  } 
 		  default :
 		  return state

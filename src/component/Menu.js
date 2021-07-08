@@ -5,7 +5,7 @@ import MenuItem from "../component/MenuItem";
 const Menu = (props) => {
   return (
     <div className="menu">
-      <div id="nav-icon2" onClick={props.toggle}>
+      <div id="nav-icon2" onClick={props.menubar_close_open_handler}>
         <span></span>
         <span></span>
         <span></span>
@@ -14,7 +14,7 @@ const Menu = (props) => {
         <span></span>
       </div>
 
-      <MenuItem toggle={props.toggle} className={props.className}/>
+      <MenuItem  menubar_close_open_handler={props.menubar_close_open_handler} className={props.className}/>
     </div>
   );
 };

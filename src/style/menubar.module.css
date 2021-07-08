@@ -22,7 +22,8 @@ padding-top:20px;
 height:70px;
 font-size:18px;
 letter-spacing:2px;
-color:orange
+color:orange;
+cursor:pointer
 
 }
 .menubar ul li:hover{ 

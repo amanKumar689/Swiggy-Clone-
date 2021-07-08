@@ -20,11 +20,21 @@ function loginHandler() {
 		data: qs.stringify({email , password} ),
 		url
 	}
-	axios(options).then((user)=>{
-		console.log(' sent',user)
-		 props.sidebarToggle(false)
-		 props.auth_handler(user.data)
-		history.push('/restaurants')
+	axios(options).then((res)=>{
+		
+			 if(!res.data.token) 
+			 {
+				 console.log(res.data.message)
+			 }
+			 else 
+			 {
+			 
+		 props.sidebarToggle(false)   // closing time 
+		 	 localStorage.setItem('token',res.data.token)   
+		
+		 props.auth_handler(true)
+	props.sidebarState.redirect_status &&	history.push('/restaurants')
+			 }
 	}).catch(err=>{
 	console.log('something gone wrong',err)
 	})
@@ -65,5 +75,10 @@ function loginHandler() {
     </div>
   );
 };
-
-export default connect(null,actions)(Login);
+function mapStateToProps (state) {
+	
+	return { 
+	  sidebarState:state.sidebarReducer
+	 }
+}
+export default connect(mapStateToProps,actions)(Login);

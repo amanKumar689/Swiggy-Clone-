@@ -1,14 +1,17 @@
 .checkout {
-  border: 2px solid black;
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
   background-color: #f2f2f27d;
+  display:flex;
+  felx-wrap:wrap;
+  justify-content:space-evenly
 }
 .left {
   flex: 0.7;
   padding: 60px 50px 0px 50px;
   line-height: 2;
+  border:1px solid red
 }
 .checkout_auth {
   box-shadow: 0px 0px 5px 1px lightgrey;
@@ -36,9 +39,28 @@
   background-color: #3fca3f;
 
 }
+.checkout_address {
+	
+  box-shadow: 0px 0px 5px 1px lightgrey;
+  padding: 25px;
+  color: #555555f0;
+  letter-spacing: 2px;
+  background-color: white;
+}
+
+
+.checkout_payment {
+	
+  box-shadow: 0px 0px 5px 1px lightgrey;
+  padding: 25px;
+  color: #555555f0;
+  letter-spacing: 2px;
+  background-color: white;
+}
 .right {
   flex: 0.3;
-  padding: 60px 50px 0px 50px;
+  padding: 60px 30px 0px 30px;
+  min-width:330px;
 }
 .cart_list {
   display: flex;
@@ -47,6 +69,7 @@
   min-height: 450px;
   box-shadow: 0px 0px 1px 1px lightgrey;
   background-color:white;
+
 }
 .cart_list h5 {
   padding-left: 20px;
@@ -66,3 +89,65 @@
   padding: 17px 20px 0px 20px;
  border-top:1px solid lightgray
 }
+.Empty {
+  padding: 25px 25px 50px 25px;
+  color: gray;
+  letter-spacing: 4px;
+  background-color: white;
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction:column;
+  justify-content:center;
+  align-content:center;
+	text-align:center;
+}
+.Empty img{
+	max-width:400px;
+}
+.Empty h2 {
+	
+}
+.right button {
+
+ width:70%;
+ align-self:center;
+ height:35px;
+ box-shadow:none;
+ border:0.5px solid lightgray;
+ background-color:orange;
+color:white;
+letter-spacing:2px 
+}
+
+
+.address_form {
+	display:flex;
+	flex-wrap:Wrap;
+	justify-content:space-evenly;
+    flex-direction:column;
+	}
+
+@media only screen and (max-width:700px) 
+{
+	.left {
+		flex:1;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	.right{
+		flex:1;
+	}
+}
+
+

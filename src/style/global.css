@@ -43,3 +43,11 @@ body {
 .border_bottom {
   border-bottom:2px solid gray
 }
+ .ant-steps-item-process .ant-steps-item-icon {
+	background-color:orange !important;
+	border:none !important
+}
+  .MuiOutlinedInput-root {
+	
+	margin-bottom:20px !important;
+}

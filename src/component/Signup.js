@@ -27,10 +27,20 @@ const Signup = (props) => {
 		
 		 axios(options)
 		 .then((res)=>{
-			 console.log("from server --- ",res)
-			 props.auth_handler(res.data.data);
+			 
+			 if(!res.data.token) 
+			 {
+				 console.log(res.data.message)
+			 }
+			 else 
+			 {
+				 console.log("TOKEN --> ",res.data.token)
+			 localStorage.setItem('token',res.data.token)      //  Token store to localstorage
+			 props.auth_handler(true);
+			 
 			 props.sidebarToggle(false);
-			 history.push('/restaurants')
+			props.sidebarState.redirect_status && history.push('/restaurants')
+			 }
 			 
 		 })
 		 .catch((err)=>{
@@ -56,5 +66,10 @@ const Signup = (props) => {
         </div>
     )
 }
-
-export default connect(null,actions)(Signup)
+function mapStateToProps (state) {
+	
+	return { 
+	  sidebarState:state.sidebarReducer
+	 }
+}
+export default connect(mapStateToProps,actions)(Signup)

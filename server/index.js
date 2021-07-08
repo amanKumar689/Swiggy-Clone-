@@ -15,6 +15,7 @@ passport.use(STRATEGY.LocalStrategy)
 passport.use(STRATEGY.Jwt_Strategy)
  app.use(passport.session());
  
+const secret = "SECRET____KEY";
  
                                                   /*   1. authentication   */
 
@@ -24,12 +25,16 @@ app.use(
   })
 );
 
-
                                                /*    -->   CORS  MIDDLEWARE   -- >      */
+app.use(ALLOW_CORS)
  
 function ALLOW_CORS(req,res,next) {
+	
+	
 	console.log('i think it is running')
-	res.setHeader('access-control-allow-origin','*')
+	res.setHeader('access-control-allow-origin','http://localhost:3000')
+	res.setHeader('Access-Control-Allow-Credentials' ,true)
+	res.setHeader('Access-Control-Allow-Headers' , 'Authorization');
 	next()
 }
 
@@ -37,7 +42,6 @@ function ALLOW_CORS(req,res,next) {
 
 function createToken(id) {
 	
-const secret = "SECRET____KEY";
 	return jwt.encode(id ,secret)	
 }
 
@@ -45,9 +49,8 @@ const secret = "SECRET____KEY";
 
                                         /*      <--   SIGN UP SECTION    -->    */
 
-app.post("/signup",  ALLOW_CORS ,passport.authenticate('local',{session:false }) ,(req, res) => {
+app.post("/signup",passport.authenticate('local',{session:false }) ,(req, res) => {
 	
-	console.log('everything is good',req.user);
 	
 	
 	 if(!req.user.user) 
@@ -118,7 +121,7 @@ function  Authenticate(req,res,next) {
 	
 	 passport.authenticate('jwt',{session:false} , (error,user,info,status)=>{
 		   
-		   if(!user) 
+		   if(req.headers.authorization==undefined) 
 		   {
 			    
 				// local  authentication
@@ -137,24 +140,57 @@ function  Authenticate(req,res,next) {
 
  const  IsMatch =	bcrypt.compareSync(user_password,stored_password)
 
- 
-   IsMatch ? next() : res.send({message:" password incorrect"})
+ if(IsMatch)
+ {
+	 req.user= user
+    next() 
+ }
+ else 
+ {
+	 
+	res.send({message:" password incorrect"})
+	 
+ }
    
 			    		 
 				 }
 				 
 		   else 
 		   {
-			   
-			    res.send({message:" email is not registered yet"})
+			   res.send({message:" email is not registered yet"})
 		   }
 			      })
 		   }
 				  
 				  else 
 				  {
-					
-  res.send({mode :" JWT mode"})					
+			
+			let token = req.headers.authorization.includes('null')
+	  if(!token)
+	  {
+	token  =  req.headers.authorization.replace('Bearer',"") 
+		  
+	   token = token.replace(' ','')
+	   const id = jwt.decode(token , secret)
+	  User.findOne({_id:id },(err,user)=>{
+       if(user) {
+		   
+					res.send({status:true})	
+		   
+	   } 
+else 
+{
+	res.send(' you are fake user')
+}	
+		  
+	  })
+	  
+	  }
+ 
+ else {
+	 res.send(' Not logged In')
+ }
+  
 					  
 				  }
 				  
@@ -165,9 +201,12 @@ function  Authenticate(req,res,next) {
 	
 }
 
-  app.get('/login_using_jwt' ,Authenticate ,(req,res,next)=>{
+  app.post('/login' ,Authenticate ,(req,res,next)=>{
 	  
-	  res.send({message:" welcome my user you have passed my security layer"})
+	  console.log("user  === ",req.user)
+	   const token = createToken(req.user.id)
+	   
+	  res.send({message:" welcome my user you have passed my security layer"  ,token })
 	  
 	   
 	})

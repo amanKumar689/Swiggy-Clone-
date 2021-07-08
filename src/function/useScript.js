@@ -3,10 +3,9 @@ import style_2 from "../style/home.module.css";
 import style_3 from "../style/sidebar.module.css";
 import effectStyle from "../style/effect.module.css";
 import $ from "jquery";
+
+
 // DOM MANIPULATION
-
-
-
 export function loadScriptForSortBy() {
   const sortByBoxItems = document.getElementsByClassName(
     effectStyle.Hover_border_bottom
@@ -100,4 +99,20 @@ export function category_highLighter () {
     }
   });
 
-}
+} 
+
+export  function logout_handler(props ,menubar_close) {
+	 
+	 // Let's do some fun with logout handler
+	 
+	 props.auth_handler(false);
+	 localStorage.removeItem('token')
+	 menubar_close()
+	 
+ }
+ export   function sidebarHandler (props,menubar_close) {
+ 
+    props.sidebarToggle(!props.sidebarState.status,'L')
+	 menubar_close()
+  
+  }

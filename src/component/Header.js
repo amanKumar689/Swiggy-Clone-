@@ -14,13 +14,14 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import Effectstyle from "../style/effect.module.css";
 import {connect} from 'react-redux'
 import * as actions from '../redux/actions'
-
+import {sidebarHandler , logout_handler} from '../function/useScript'
 
 
 const Header = (props) => {
   const [menuStatus, setMenuStatus] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const history = useHistory()
+  
   const NavIconColor = {
     marginRight: "4px",
   };
@@ -37,11 +38,7 @@ const Header = (props) => {
   function menuHandler() {
     window.addEventListener("resize", sidemenu_OR_navmenu);
   }
-  function sidebarHandler () {
- 
-    props.sidebarToggle(!props.sidebarState.status,'L')
 
-  }
   useEffect(() => {
     sidemenu_OR_navmenu();
   }, []);
@@ -50,8 +47,7 @@ const Header = (props) => {
     menuHandler();
     return menuHandler;
   }, [menuStatus]);
-
-console.log("function",props.history);
+console.log('menubar',props.menubar_close_open_handler)
   return (
     <div className={style.header + ' ' + props.className}>
       <section className={style.swiggyLogo}>
@@ -70,8 +66,9 @@ console.log("function",props.history);
               <li className={Effectstyle.Hover_Orange}>
                 <FontAwesomeIcon icon={faLifeRing} style={NavIconColor} /> Help
               </li>
-              <li className={Effectstyle.Hover_Orange} onClick={sidebarHandler}>
-                <FontAwesomeIcon icon={faUser} style={NavIconColor} /> {props.authState.status ? 'User' : 'Sign In'}
+              <li className={Effectstyle.Hover_Orange} onClick={()=> {!props.authState.status ? sidebarHandler(props,menubar_close_open_handler) 	: logout_handler(props,menubar_close_open_handler)} }>
+                <FontAwesomeIcon icon={faUser} style={NavIconColor} /> {props.authState.status ? 'Log out': 'Sign In' }
+			
               </li>
               <li className={Effectstyle.Hover_Orange} onClick={()=>{history.push('/checkout')}}>
                 <FontAwesomeIcon icon={faShoppingBasket} style={NavIconColor} />
@@ -82,7 +79,7 @@ console.log("function",props.history);
         </section>
       ) : (
         <Menu
-          toggle={menubar_close_open_handler}
+         menubar_close_open_handler ={menubar_close_open_handler}
           className={menuOpen ? "openmenu" : "closemenu"}
         />
       )}
