@@ -1,4 +1,5 @@
 
+
 .offer_bar {
 	min-height:200px;
 	padding:10px 10px 10px 10px ;
@@ -217,3 +218,15 @@ margin-bottom:17px	}
 							   border:none;								 
 								 }											
 					}
+					
+					.disabled {
+						width:100vw
+					}
+				
+	.disabled .left ul li:hover {
+		background-color:transparent !important;
+	}				
+					
+					
+					
+					

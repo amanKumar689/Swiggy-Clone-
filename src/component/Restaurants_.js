@@ -5,6 +5,7 @@ import CardList from "./CardList";
 import Select from "../component/small/Select";
 import {loadScriptForSortBy} from '../function/useScript'
 import Restaurants_data from '../API/restaurants_data.json' 
+
 class Restaurants_ extends Component {
   constructor(props) {
     super(props);
@@ -38,14 +39,14 @@ loadScriptForSortBy()
           </div>
         </header>
         <section className={style.cardList_section}>
-          <CardList
+			<CardList
             parent_class={style.restaurant_cardList} // parents class --> How cardList container should be shaped for It's childen
             child_class={
               style.restaurant_card + " " + effectStyle.Hover_float_card
             } // child class  --> How card should be Look
             data_shower_className={style.resturant_card_data} // nested  class --> data className
             data={Restaurants_data.data}
-          />
+			/>
         </section>
       </div>
     );

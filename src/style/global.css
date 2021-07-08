@@ -51,3 +51,10 @@ body {
 	
 	margin-bottom:20px !important;
 }
+.MuiSkeleton-root{
+	margin-right:30px;
+	margin-bottom:30px;
+}
+.ant-skeleton-element {
+	width:100%;
+}
