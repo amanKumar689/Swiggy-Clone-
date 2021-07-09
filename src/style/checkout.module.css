@@ -9,9 +9,8 @@
 }
 .left {
   flex: 0.7;
-  padding: 60px 50px 0px 50px;
+  padding: 20px 50px 0px 50px;
   line-height: 2;
-  border:1px solid red
 }
 .checkout_auth {
   box-shadow: 0px 0px 5px 1px lightgrey;
@@ -133,21 +132,23 @@ letter-spacing:2px
 		flex:1;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	.right{
 		flex:1;
 	}
 }
 
-
+.cart_navigator {
+	font-size:19px;
+  text-align:right;
+  
+  }
+  .cart_navigator button {
+	  
+	  background-color:transparent ;
+border:none;
+color:orange;	  
+	  }
+  .cart_navigator button:hover { 
+  
+	  color:#ff6800 ;
+  }

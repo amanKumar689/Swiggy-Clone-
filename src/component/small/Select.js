@@ -10,12 +10,11 @@ const Select = () => {
     <div className="selectSort">
       <DropdownButton
         id="dropdown-button-dark-example2"
-        menuVariant="dark"
+        menuvariant="dark"
         title={item}
         className="mt-3"
       >
-       
-        <Dropdown.Item >REVELANCE</Dropdown.Item>
+        <Dropdown.Item>REVELANCE</Dropdown.Item>
         <Dropdown.Item>COST FOR TWO</Dropdown.Item>
         <Dropdown.Item>DELIVERY TIME</Dropdown.Item>
         <Dropdown.Item>RATING</Dropdown.Item>

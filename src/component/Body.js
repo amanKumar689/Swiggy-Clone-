@@ -4,7 +4,7 @@ import React from "react";
 import style from "../style/body.module.css";
 // Component
 import Restaurants_ from "./Restaurants_";
-import Banner from  './Banner'
+import Banner from "./Banner";
 const Body = () => {
   return (
     <>

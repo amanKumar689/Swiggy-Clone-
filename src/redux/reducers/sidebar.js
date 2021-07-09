@@ -6,7 +6,6 @@ const intialState = {
   };
   
 function sidebar_handle(state = intialState, action) {
-	console.log('reducer' , action.redirect_status)
     switch (action.type) {
       case SIDEBAR:
         return {

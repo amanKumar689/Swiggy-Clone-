@@ -14,7 +14,10 @@ const Menu = (props) => {
         <span></span>
       </div>
 
-      <MenuItem  menubar_close_open_handler={props.menubar_close_open_handler} className={props.className}/>
+      <MenuItem
+        menubar_close_open_handler={props.menubar_close_open_handler}
+        className={props.className}
+      />
     </div>
   );
 };

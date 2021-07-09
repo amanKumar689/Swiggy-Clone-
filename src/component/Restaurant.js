@@ -6,14 +6,13 @@ import Filter from "./small/Filter";
 // import Items from './small/Items'
 import Items from "./small/Items";
 import { connect } from "react-redux";
-import { set_restaurant_id ,remove_from_cart_handler } from "../redux/actions";
+import { set_restaurant_id, remove_from_cart_handler } from "../redux/actions";
 import Restaurants_data from "../API/restaurants_data.json";
 import $ from "jquery";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faMinusCircle} from "@fortawesome/free-solid-svg-icons";
-import {banner_effect , category_highLighter} from '../function/useScript'
-
-
+import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
+import { banner_effect, category_highLighter } from "../function/useScript";
+import Button from "@material-ui/core/Button";
 class Restaurant extends Component {
   constructor(props) {
     super(props);
@@ -29,20 +28,21 @@ class Restaurant extends Component {
     const data = Restaurants_data.data.filter(
       (EachRestaurant) => EachRestaurant.restaurant_id.toString() === id
     );
-    console.log("check == ", data);
     this.setState((prevState) => ({
       restaurant_data: data[0],
     }));
     this.props.set_restaurant_id(id);
   }
 
-  remove_from_cart (event) {
-	  const id = event.currentTarget.id;
-	  this.props.remove_from_cart_handler(id)
+  remove_from_cart(event) {
+    const id = event.currentTarget.id;
+    this.props.remove_from_cart_handler(id);
   }
-  
+
+   
   render() {
-	  console.log("remove --> ",this.props.cartState.cart)
+	  
+	  
     return (
       <div className="main_2">
         <div className={style.restaurant_desc}>
@@ -61,8 +61,15 @@ class Restaurant extends Component {
             <div className={style.itemType}>
               {/*  This is  visible on some break point*/}
               <ul>
-                {this.state.restaurant_data.cat?.map((EachCategory,index) => {
-                  return index==0 ? <li className={style.highlighter}> {EachCategory.category} </li> : <li> {EachCategory.category} </li>
+                {this.state.restaurant_data.cat?.map((EachCategory, index) => {
+                  return index == 0 ? (
+                    <li key={index} className={style.highlighter}>
+                      {" "}
+                      {EachCategory.category}{" "}
+                    </li>
+                  ) : (
+                    <li key={index}> {EachCategory.category} </li>
+                  );
                 })}
               </ul>
 
@@ -76,9 +83,14 @@ class Restaurant extends Component {
             <div className={style.items}>
               {/* Each itemBar */}
 
-              {this.state.restaurant_data.cat?.map((EachCategory) => {
+              {this.state.restaurant_data.cat?.map((EachCategory,index) => {
                 return (
-                  <Items data={EachCategory.menu} cat={EachCategory.category} />
+                  <Items 
+				  key={index}
+				      data={EachCategory.menu} 
+					  cat={EachCategory.category}  
+					   cart_info ={this.props.cartState.cart}  
+					  />
                 );
               })}
             </div>
@@ -89,22 +101,35 @@ class Restaurant extends Component {
                 <small> {this.props.cartState.cart.length} ITEMS </small>
               </h4>
               <ul>
-                {this.props.cartState.cart.map(item =>{
-					
-				return (
-                  <li>
-                    <span>{item.food_name}</span>
-				<span>155 &nbsp; &nbsp; <FontAwesomeIcon icon={faMinusCircle} onClick={this.remove_from_cart.bind(this)} class={style.remove} id={item.food_id}/> </span>
-                  </li>
-                )
-				} 
-				)}
+                {this.props.cartState.cart.map((item) => {
+                  return (
+                    <li>
+                      <span>{item.food_name}</span>
+                      <span>
+                        155 &nbsp; &nbsp;{" "}
+                        <FontAwesomeIcon
+                          icon={faMinusCircle}
+                          onClick={this.remove_from_cart.bind(this)}
+                          class={style.remove}
+                          id={item.food_id}
+                        />{" "}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
               <h6>
                 <span> Subtotal </span>
                 <span> 810</span>
               </h6>
-              <span> CHECKOUT </span>
+              <span>
+			  <Button
+          className={style.checkout_btn} 
+		     variant="contained" 
+			 onClick={() =>{this.props.history.push('/checkout')}}
+           >  CHECKOUT 
+		   </Button>
+		   </span>
             </div>
           </section>
         </div>
@@ -118,4 +143,7 @@ function mapStateToProps(state) {
     cartState: state.cartReducer,
   };
 }
-export default connect(mapStateToProps, { set_restaurant_id ,remove_from_cart_handler })(Restaurant);
+export default connect(mapStateToProps, {
+  set_restaurant_id,
+  remove_from_cart_handler,
+})(Restaurant);

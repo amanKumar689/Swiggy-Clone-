@@ -1,6 +1,7 @@
 .continue {
   background-color: orange !important;
   color: white !important;
+  height:45px;
 }
 .signup {
   height: 100%;

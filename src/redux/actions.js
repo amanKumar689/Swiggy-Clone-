@@ -7,7 +7,6 @@ import {AUTH_TOGGLE}  from  "./actionsType"
 
 
 export const sidebarToggle = (val,prop ,bool) => {
-	console.log('trigger == ',bool)
   return {
     type: SIDEBAR,
     status: val,
@@ -17,10 +16,11 @@ export const sidebarToggle = (val,prop ,bool) => {
   };
 };
 
-export const cart_store_handler = (data) =>{
+export const cart_store_handler = (data,disabled_btn_loader) =>{
 return {
     type:ADD_TO_CART,
-    data 
+    data ,
+	disabled_btn_loader
   }
 
 }
@@ -46,7 +46,6 @@ export const remove_from_cart_handler = (id)=> {
 
 export const auth_handler = (status) =>{  // just like my hand --> just handle trigger 
 	
-	 console.log(" called me bro ",status)
 	
 	return  {
 		type:AUTH_TOGGLE ,

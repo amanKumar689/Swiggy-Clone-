@@ -41,7 +41,7 @@
 	 cursor:pointer;
 	 word-break:break-all
 } 
-.left ul li:hover {
+.left ul li:hover , .right nav:hover{
 	background-color:white;
 	color:black;
 }
@@ -223,7 +223,7 @@ margin-bottom:17px	}
 						width:100vw
 					}
 				
-	.disabled .left ul li:hover {
+	.disabled .left ul li:hover ,.disabled .right nav:hover{
 		background-color:transparent !important;
 	}				
 					
