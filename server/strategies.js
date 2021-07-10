@@ -21,23 +21,12 @@ function(email,password,done){
 	 
  if(err) {return done(err) } //there is err
    if(!user) {
-	   return done(null,{ user:false  }) // no error  BUT  user is  present
+	   return done(null, {user:false}) // no error  BUT  user is  present
    }
  else {
-	 return done(false,{user:true , message:" plzz choose different account"})  // no error &&  no user 
+	 return done(false,{user:true},{ message:" plzz choose different account"})  // no error &&  no user 
  }   
    
-   
-   /*
- const user_password = password ;
- const  stored_password = user.password
-
- const  IsMatch =	bcrypt.compareSync(user_password,stored_password)
-
- 
-   IsMatch ? done(null,user) :done(null,false)
-   
-   */
  })
 	
 	
@@ -59,13 +48,12 @@ const JWT_STRATEGY =  new JwtStrategy( options ,
   function (jwt_Payload ,done) {
 	  
 	  
-	 return   done(null , {message: `Your secret code ${jwt_Payload.sub}`})
 	 
 	  User.findOne({id:jwt_Payload.sub} ,(err,user) =>{
 		  
 		  if(err){return done(err,false)}
 		  if(!user) { return done(null, false)}
-		  else { return done(null,user) } 
+		  else { return done(null,user,{message:"Successful Logged in"}) } 
 		   
 	  })
 	  

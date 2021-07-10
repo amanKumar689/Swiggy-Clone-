@@ -9,14 +9,21 @@ export default class CardList extends Component {
     this.state = {
       status: false,
     };
+	this.Status_changer = this.Status_changer.bind(this)
   }
 
+ Status_changer() {
+		this.setState({ status: true });
+	}
+	
+
   componentDidMount() {
-	setTimeout(() => {
-      this.setState({ status: true });
-    }, 4000);  
+	this.subscription = setTimeout(this.Status_changer, 4000);  
   }
-  
+  componentWillUnmount() {
+	clearTimeout(this.subscription)
+	  
+  }
   render() {
     const component = (
       <div className={this.props.parent_class}>

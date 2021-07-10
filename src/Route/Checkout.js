@@ -49,17 +49,19 @@ const { Step } = Steps;
       !cartStatus && setCartStatus(true);
     }
 
-    window.onresize = () => {
+	 
+	 window.addEventListener('resize',() => {
       if(Ismounted)
 	  {
 		  
 	  if (window.innerWidth <= 700) {
+
         cartStatus && setCartStatus(false);
       } else {
         !cartStatus && setCartStatus(true);
       }
 	  }
-    };
+    })
 	return () =>{Ismounted =false}
   }, [cartStatus]);
 
@@ -123,7 +125,7 @@ const { Step } = Steps;
           }
         </Steps>
       </section>
-      {(cartStatus || props.authState.status) && (
+      {(cartStatus ) && (
         <section className={style.right}>
           <div className={style.cart_list}>
             <h5> Restaurant Name </h5>

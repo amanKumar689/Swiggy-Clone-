@@ -7,13 +7,18 @@ const bcrypt = require('bcrypt');
 const passport = require('passport')
 const STRATEGY = require('./strategies')
 const jwt = require('jwt-simple')
+const flash = require('connect-flash')
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
 
 
-
+app.use(cookieParser())
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 app.use(passport.initialize() )
 passport.use(STRATEGY.LocalStrategy)
 passport.use(STRATEGY.Jwt_Strategy)
  app.use(passport.session());
+app.use(flash())
  
 const secret = "SECRET____KEY";
  
@@ -31,7 +36,6 @@ app.use(ALLOW_CORS)
 function ALLOW_CORS(req,res,next) {
 	
 	
-	console.log('i think it is running')
 	res.setHeader('access-control-allow-origin','http://localhost:3000')
 	res.setHeader('Access-Control-Allow-Credentials' ,true)
 	res.setHeader('Access-Control-Allow-Headers' , 'Authorization');
@@ -45,23 +49,34 @@ function createToken(id) {
 	return jwt.encode(id ,secret)	
 }
 
-
-
                                         /*      <--   SIGN UP SECTION    -->    */
 
-app.post("/signup",passport.authenticate('local',{session:false }) ,(req, res) => {
-	
+					function 	signup_middleware(req,res,next){
+						
+						
+						passport.authenticate('local',{session:false ,failureFlash:true},(err,user,info,status) =>{
+							
+							!user &&  req.flash('message',info.message)
+							 req.user = user
+							 next()
+							
+						})(req,res,next)
+						
+					}				
+									
+app.post("/signup", signup_middleware ,(req, res) => {
 	
 	
 	 if(!req.user.user) 
 	 {
 		 // Let's create new one 
 		   
-	  const new_user = new User({
+	  const new_user = new User({           // model using schema 
 		  username: req.body.username,
           password: req.body.password,
           email:req.body.email
   });
+  
 		  
  
   new_user
@@ -74,15 +89,14 @@ app.post("/signup",passport.authenticate('local',{session:false }) ,(req, res) =
 	   
 	   res.send(
 	  {
-		  message: "saved succefully  Plz set Given token to your localstorage / session", 
+		  message: "saved succefully  Plz set given token to your localstorage / session", 
 	      token 
 	  });
 	  
     })
     .catch((err) => {
-		console.log('error:::---',err)
       res.status(400).send ({
-        message: err.errors?.email.message || err.keyPattern && " Email already exist " || " something gone wrong",
+        message: req.flash('message')[0],
       });
     });
 		  
@@ -94,36 +108,15 @@ app.post("/signup",passport.authenticate('local',{session:false }) ,(req, res) =
 	
 });
 
-                                        /*        <--   LOGIN  SECTION  -->   (  jwt /  no jwt )      
-
-
-app.post('/login',ALLOW_CORS ,passport.authenticate('jwt',{session:false }) ,(req,res)=>{
-	
-		
-	res.send({messgae:"successfully logged in" ,email:req.user.email})
-	
-})
-
-										*/
-
-//            < --    JWT AUTHENTICATION   -->
-
-
-/*
-function IS_JWT_PRESSENT ( req,res,next) {
-	
-	console.log(req.headers.authorization)
-	next()
-	
-}
-*/
 function  Authenticate(req,res,next) {
 	
 	 passport.authenticate('jwt',{session:false} , (error,user,info,status)=>{
 		   
-		   if(req.headers.authorization==undefined) 
+	// When No JWT  -->   Login with username and password
+	
+		   if(req.body.email) 
 		   {
-			    
+			    console.log('local entry ',user)
 				// local  authentication
 				
 				const login_user= {
@@ -143,6 +136,7 @@ function  Authenticate(req,res,next) {
  if(IsMatch)
  {
 	 req.user= user
+	 req.flash('message',info.message)
     next() 
  }
  else 
@@ -157,14 +151,17 @@ function  Authenticate(req,res,next) {
 				 
 		   else 
 		   {
-			   res.send({message:" email is not registered yet"})
+			   res.send({message:" email is not registered "})
 		   }
 			      })
 		   }
 				  
-				  else 
+  //                  When    -->   JWT   <-- is  available  
+  
+				  else if(!user)
 				  {
-			
+					res.send({status:true ,message_2:info.message})	
+		/*
 			let token = req.headers.authorization.includes('null')
 	  if(!token)
 	  {
@@ -175,7 +172,7 @@ function  Authenticate(req,res,next) {
 	  User.findOne({_id:id },(err,user)=>{
        if(user) {
 		   
-					res.send({status:true})	
+					res.send({status:true })	
 		   
 	   } 
 else 
@@ -192,7 +189,9 @@ else
  }
   
 					  
-				  }
+				*/
+				}
+				  
 				  
 		   
 	   } )
@@ -202,9 +201,14 @@ else
 }
 
   app.post('/login' ,Authenticate ,(req,res,next)=>{
-	  
-	  console.log("user  === ",req.user)
-	   const token = createToken(req.user.id)
+	  console.log('Main function')
+   
+     if(!req.user.id)
+	 {
+		 res.send({message:req.flash('message')[0]})
+	 }
+  
+ const token = createToken(req.user.id)
 	   
 	  res.send({message:" welcome my user you have passed my security layer"  ,token })
 	  

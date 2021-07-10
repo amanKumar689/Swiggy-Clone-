@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState ,useEffect} from 'react'
 import style from "../../style/checkout.module.css";
 import {connect } from 'react-redux'
 import  * as actions from '../../redux/actions'
@@ -10,6 +10,13 @@ const Cart =(props) =>{
 	
   const [cartStatus, setCartStatus] = useState(false);
 	  const history = useHistory()
+	  useEffect(()=>{
+		  console.log('cart is mounted ')
+		  return ()=>{
+			  console.log('cart is unmounted ')
+		  }
+		  
+	  },[])
 	return ( <section className={style.right}>
           <div className={style.cart_list}>
             <h5> Restaurant Name </h5>

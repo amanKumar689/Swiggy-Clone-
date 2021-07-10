@@ -23,6 +23,7 @@ const Default_width = window.innerWidth;
 
 
 function Not_Found() {
+	console.log('Now found componennt')
 	return (<h1>PAGE  NOT FOUND  </h1>) 
 }
 
@@ -32,26 +33,27 @@ const SwiggyApp = (props) => {
   const [Is_mobile_version,set_Is_mobile_version] = useState(null)
   
   useEffect(()=>{ 
+ console.log('inside useEffect')
  let Ismounted = true
 	function mobile_or_desktop() {
 		
    if(window.innerWidth<=700) 
    {  
-     console.log(' inside function left',Is_mobile_version)
-
+    console.log('<--left')
   !Is_mobile_version && set_Is_mobile_version(true)
    }	
     else 
 	{
-     console.log(' inside function right ',Is_mobile_version)
+    console.log('right -->')
   Is_mobile_version && set_Is_mobile_version(false)
 		
 	}
+	
 	}
    
-  window.onresize = mobile_or_desktop ;
+  window.addEventListener('resize' ,mobile_or_desktop);
   mobile_or_desktop()
-  return  ()=>{Ismounted =false;window.removeEventListener('resize',mobile_or_desktop)}
+  return  ()=>{Ismounted =false;window.removeEventListener('resize',mobile_or_desktop);console.log('swiggy unmounted')}
   
   },[Is_mobile_version])
   
@@ -86,8 +88,7 @@ const SwiggyApp = (props) => {
         console.log("something gone wrong", err);
       });
   }, []);
-  
-  console.log("Mobile status",Is_mobile_version)
+  console.log('Is_mobile_version',Is_mobile_version)
   return (
     <>
       <Switch>
@@ -101,7 +102,7 @@ const SwiggyApp = (props) => {
         />
 
          <Route excat path="/checkout" component={Checkout} />
-			<Route exact path="/cart" component={Is_mobile_version!=null && Is_mobile_version ? Cart : Not_Found} /> 	
+			<Route exact path="/cart" component={(Is_mobile_version!=null ) && Is_mobile_version ? Cart : Not_Found} /> 	
 		
       </Switch>
 
